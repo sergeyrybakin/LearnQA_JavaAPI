@@ -3,8 +3,7 @@ import io.qameta.allure.Description;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class FizzBuzzKISSTest
-{
+public class FizzBuzzKISSTest {
     @Test
     @Tag("FizzBuzz")
     @Description("Type numbers from 1 to 100."
