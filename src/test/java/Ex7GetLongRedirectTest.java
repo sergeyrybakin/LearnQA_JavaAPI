@@ -1,10 +1,8 @@
 import io.restassured.RestAssured;
-import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
