@@ -4,21 +4,29 @@ import io.restassured.path.json.JsonPath;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HelloWorldTest
 {
-    @Test
-    public void testRestAssured() {
-        Map<String, String> params = new HashMap<>();
-        params.put("name","Sergey");
+    @ParameterizedTest
+    @ValueSource(strings = {"", "Sergey", "Pete"})
+    public void testHelloMethodWithName(String name) {
+        Map<String, String> queryParams = new HashMap<>();
 
-        JsonPath response = RestAssured
+        if(name.length() > 0) {
+            queryParams.put("name", name);
+        }
+
+        JsonPath jsonPath = RestAssured
                 .given()
-                .queryParams(params)
+                .queryParams(queryParams)
                 .get("https://playground.learnqa.ru/api/hello")
                 .jsonPath();
-        String answer = response.get("answer");
-        System.out.println(answer);
+        String answer = jsonPath.getString("answer");
+        String expectedName = (name.length() > 0) ? name : "someone";
+        assertEquals("Hello, " + expectedName, answer, "The answer is not expected");
     }
 }
