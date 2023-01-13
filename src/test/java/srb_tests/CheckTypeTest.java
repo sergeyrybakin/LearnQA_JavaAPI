@@ -1,3 +1,5 @@
+package srb_tests;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.http.Headers;
