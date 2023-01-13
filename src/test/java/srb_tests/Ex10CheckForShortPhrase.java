@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Ex10CheckForShortPhrase
 {
     @ParameterizedTest
-    @CsvFileSource(resources = "/Ex10/dataForEx10.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/Ex10/dataForEx10.csv", numLinesToSkip = 1) //Read from file and skip the 1st line.
     public void testCheckForShortPhrase (String name, String value){
         int length = (value!=null) ? value.length() : 0;
         System.out.println("\nString is: \"" + value + "\"\t\tthe length is: " + length);
