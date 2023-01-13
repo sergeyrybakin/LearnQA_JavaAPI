@@ -1,4 +1,4 @@
-package srb_tests;
+package tests;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Ex10CheckForShortPhrase
 {
     @ParameterizedTest
-    @CsvFileSource(resources = "/Ex10/dataForEx10.csv", numLinesToSkip = 1) //Read from file and skip the 1st line.
+    @CsvFileSource(resources = "/homeworkdata/dataForEx10.csv", numLinesToSkip = 1) //Read from file and skip the 1st line.
     public void testCheckForShortPhrase (String name, String value){
         int length = (value!=null) ? value.length() : 0;
         System.out.println("\nString is: \"" + value + "\"\t\tthe length is: " + length);
