@@ -23,4 +23,15 @@ public class Assertions {
                 + expectedValueOfCookie
                 + "\"!");
     }
+
+    public static void assertHeaderByName(Response response, String expectedNameOfHeader, String expectedValueOfHeader) {
+        response.then().assertThat().header(expectedNameOfHeader,is(notNullValue()));
+
+        String headerValue = response.getHeader(expectedNameOfHeader);
+        assertEquals(expectedValueOfHeader,headerValue,"Header \""
+                + expectedNameOfHeader
+                + "\" doesn't have expected velue: \""
+                + expectedValueOfHeader
+                + "\"!");
+    }
 }
