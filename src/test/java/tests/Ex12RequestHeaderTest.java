@@ -12,7 +12,7 @@ public class Ex12RequestHeaderTest extends BaseTestCase {
 
     @ParameterizedTest
     @CsvSource("x-secret-homework-header,Some secret value")
-    public void cookieVerificationTest(String expectedNameOfHeader
+    public void headerVerificationTest(String expectedNameOfHeader
             , String expectedValueOfHeader) {
         Response response = RestAssured
                 .get("https://playground.learnqa.ru/api/homework_header")
