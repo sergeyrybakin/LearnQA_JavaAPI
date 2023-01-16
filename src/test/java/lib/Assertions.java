@@ -2,7 +2,7 @@ package lib;
 
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Assertions {
 
@@ -24,8 +24,9 @@ public class Assertions {
                 + "\"!");
     }
 
-    public static void assertHeaderByName(Response response, String expectedNameOfHeader, String expectedValueOfHeader) {
-        response.then().assertThat().header(expectedNameOfHeader,is(notNullValue()));
+    public static void assertHeaderByName(Response response, String expectedNameOfHeader,
+            String expectedValueOfHeader) {
+        response.then().assertThat().header(expectedNameOfHeader, is(notNullValue()));
 
         String headerValue = response.getHeader(expectedNameOfHeader);
         assertEquals(expectedValueOfHeader,headerValue,"Header \""
