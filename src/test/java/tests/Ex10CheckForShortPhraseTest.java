@@ -4,7 +4,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Ex10CheckForShortPhrase
+public class Ex10CheckForShortPhraseTest
 {
     @ParameterizedTest
     @CsvFileSource(resources = "/homeworkdata/dataForEx10.csv", numLinesToSkip = 1) //Read from file and skip the 1st line.
