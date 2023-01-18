@@ -31,8 +31,12 @@ public class Assertions {
         String headerValue = response.getHeader(expectedNameOfHeader);
         assertEquals(expectedValueOfHeader,headerValue,"Header \""
                 + expectedNameOfHeader
-                + "\" doesn't have expected velue: \""
+                + "\" doesn't have expected value: \""
                 + expectedValueOfHeader
                 + "\"!");
+    }
+
+    public static void assertBySize(int size, int size1) {
+        assertTrue(size==size1, "Digit1 should be equal Digit2!");
     }
 }
