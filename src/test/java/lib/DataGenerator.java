@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataGenerator {
+
     public static String getRandomEmail() {
         String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new java.util.Date());
         return "learnqa" + timestamp + "@example.com";
@@ -44,4 +45,5 @@ public class DataGenerator {
         }
         return stringOf255Chars;
     }
+
 }

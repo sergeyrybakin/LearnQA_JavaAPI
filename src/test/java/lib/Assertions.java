@@ -47,8 +47,8 @@ public class Assertions {
                 + "\"!");
     }
 
-    public static void assertBySize(int size, int size1) {
-        assertTrue(size==size1, "Digit1 should be equal Digit2!");
+    public static void assertBySize(int size, int expectedSize) {
+        assertEquals( expectedSize, size, "Digit1 should be equal Digit2!");
     }
 
     public static void assertResponseTextEquals(Response Response, String expectedAnswer) {
@@ -75,5 +75,11 @@ public class Assertions {
 
     public static void assertJsonHasNotField(Response Response, String unexpectedFieldName) {
         Response.then().assertThat().body("$",not(hasKey(unexpectedFieldName)));
+    }
+
+    public static void assertJsonHasNotFields(Response Response, String[] unexpectedFieldNames) {
+        for (String unexpectedFieldName : unexpectedFieldNames) {
+            Assertions.assertJsonHasNotField(Response,unexpectedFieldName);
+        }
     }
 }

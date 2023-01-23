@@ -24,7 +24,7 @@ public class Ex9PasswordBumpingTest {
             Response response = RestAssured
                     .given()
                     .body(data)
-                    .when()
+//                    .when()
                     .post("https://playground.learnqa.ru/ajax/api/get_secret_password_homework")
                     .andReturn();
 
@@ -40,7 +40,7 @@ public class Ex9PasswordBumpingTest {
                     .given()
                     .body(data)
                     .cookies(cookies)
-                    .when()
+//                    .when()
                     .post("https://playground.learnqa.ru/ajax/api/check_auth_cookie")
                     .andReturn();
             if(!responseForCheck.asString().contains("NOT"))

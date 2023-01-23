@@ -27,4 +27,5 @@ public class BaseTestCase {
         Response.then().assertThat().body("$",hasKey(name));
         return Response.jsonPath().getInt(name);
     }
+
 }
