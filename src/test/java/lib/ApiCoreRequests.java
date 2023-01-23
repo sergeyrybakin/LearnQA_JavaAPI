@@ -91,4 +91,15 @@ public class ApiCoreRequests {
                 .get(url + userId)
                 .andReturn();
     }
+
+    @Step("Make a PUT-request to edit user with userId as authorized user with token and cookie.")
+    public Response makePutRequestToEditUserWithId(String url, String token, String cookie, Map<String, String> editData) {
+        return  RestAssured
+                .given()
+                .header("x-csrf-token",token)
+                .cookie("auth_sid", cookie)
+                .body(editData)
+                .put(url)
+                .andReturn();
+    }
 }
