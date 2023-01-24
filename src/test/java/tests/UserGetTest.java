@@ -63,7 +63,7 @@ public class UserGetTest extends BaseTestCase {
     @Description("This test successfully authorize user and get data of another user")
     @DisplayName("Test positive. Getting of another user data")
     public void testGetUserDetailsAuthAsAnotherUser() {
-        Response responseGetAuth = apiCoreRequests.generateNewUserAndLogin();
+        Response responseGetAuth = apiCoreRequests.createNewUserAndLogin();
 
         //GET ANOTHER USER DATA (with userId=1)
         String requestedUserId = "1";

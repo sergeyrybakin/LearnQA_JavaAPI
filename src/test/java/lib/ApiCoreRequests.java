@@ -15,15 +15,10 @@ import static io.restassured.RestAssured.given;
 public class ApiCoreRequests {
 
     @Step("Make a two POST requests for creation a new user and login as it.")
-    public static Response generateNewUserAndLogin() {
+    public Response createNewUserAndLogin() {
         //GENERATE NEW USER
         Map<String, String> userData = DataGenerator.getRegistrationData();
-
-        JsonPath responseCreateAuth = given()
-                .body(userData)
-                .post("https://playground.learnqa.ru/api/user")
-                .jsonPath();
-
+        JsonPath responseCreateAuth = makePostRequest("https://playground.learnqa.ru/api/user", userData).jsonPath();
 
         String userId = responseCreateAuth.getString("id");
         //LOGIN AS NEW GENERATED USER
@@ -32,10 +27,7 @@ public class ApiCoreRequests {
         authData.put("password", userData.get("password"));
         System.out.println("New generated user's data:\nUserId " + userId + " User name " + userData.get("firstName"));
 
-        return given()
-                .body(authData)
-                .post("https://playground.learnqa.ru/api/user/login")
-                .andReturn();
+        return makePostRequest("https://playground.learnqa.ru/api/user/login", authData);
     }
 
     @Step("Make a GET-request with token and auth cookie")
@@ -98,6 +90,14 @@ public class ApiCoreRequests {
                 .given()
                 .header("x-csrf-token",token)
                 .cookie("auth_sid", cookie)
+                .body(editData)
+                .put(url)
+                .andReturn();
+    }
+    @Step("Make a PUT-request to edit user with userId as notauthorized user.")
+    public Response makePutRequestToEditUserWithId(String url, Map<String, String> editData) {
+        return  RestAssured
+                .given()
                 .body(editData)
                 .put(url)
                 .andReturn();
