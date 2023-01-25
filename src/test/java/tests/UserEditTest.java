@@ -90,7 +90,7 @@ public class UserEditTest extends BaseTestCase {
     @Description("Negative PUT test. Edit the username of another user.")
     @DisplayName("Negative PUT test. Edit the username of another user as authorized user.")
     @ParameterizedTest
-    @ValueSource(strings = {"email", "username", "firstName", "lastName"})
+    @ValueSource(strings = {"email", "username", "firstName", "lastName", "password"})
     public void editAnotherJustCreatedUserTest(String parameter) {
         //GENERATE NEW USER
         Map<String, String> userData = DataGenerator.getRegistrationData();
