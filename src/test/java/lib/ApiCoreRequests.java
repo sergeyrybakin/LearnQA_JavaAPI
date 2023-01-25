@@ -19,14 +19,13 @@ public class ApiCoreRequests {
         //GENERATE NEW USER
         Map<String, String> userData = DataGenerator.getRegistrationData();
         JsonPath responseCreateAuth = makePostRequest("https://playground.learnqa.ru/api/user", userData).jsonPath();
+//        String userId = responseCreateAuth.getString("user_id");
+        System.out.println("New generated user's data:\nUser name " + userData.get("firstName"));
 
-        String userId = responseCreateAuth.getString("id");
         //LOGIN AS NEW GENERATED USER
         Map<String, String> authData = new HashMap<>();
         authData.put("email", userData.get("email"));
         authData.put("password", userData.get("password"));
-        System.out.println("New generated user's data:\nUserId " + userId + " User name " + userData.get("firstName"));
-
         return makePostRequest("https://playground.learnqa.ru/api/user/login", authData);
     }
 
