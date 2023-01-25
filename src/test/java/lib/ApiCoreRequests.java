@@ -19,7 +19,6 @@ public class ApiCoreRequests {
         //GENERATE NEW USER
         Map<String, String> userData = DataGenerator.getRegistrationData();
         JsonPath responseCreateAuth = makePostRequest("https://playground.learnqa.ru/api/user", userData).jsonPath();
-//        String userId = responseCreateAuth.getString("user_id");
         System.out.println("New generated user's data:\nUser name " + userData.get("firstName"));
 
         //LOGIN AS NEW GENERATED USER
@@ -99,6 +98,13 @@ public class ApiCoreRequests {
                 .given()
                 .body(editData)
                 .put(url)
+                .andReturn();
+    }
+
+    @Step("Make a DELETE request by user id.")
+    public Response makeDeleteRequest(String url) {
+        return RestAssured
+                .delete(url)
                 .andReturn();
     }
 }

@@ -1,6 +1,9 @@
 package lib;
 
 import io.restassured.response.Response;
+
+import java.util.Map;
+
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.is;
@@ -81,5 +84,11 @@ public class Assertions {
         for (String unexpectedFieldName : unexpectedFieldNames) {
             Assertions.assertJsonHasNotField(Response,unexpectedFieldName);
         }
+    }
+
+    public static void verificationOfUserData(Response responseForVerification, Map<String, String> newUserData) {
+        newUserData.entrySet().stream()
+                .filter(x -> !x.getKey().equals("password"))
+                .forEach(x -> Assertions.assertJsonByName(responseForVerification, x.getKey(), x.getValue()));
     }
 }
