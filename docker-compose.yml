@@ -1,0 +1,11 @@
+version: "3"
+
+
+services:
+  test_runner:
+    build: .
+    image: sergeyrybakin/java_api_learnqa_tests
+    container_name: java_runner_works
+    volumes:
+      - .:/tests/
+
