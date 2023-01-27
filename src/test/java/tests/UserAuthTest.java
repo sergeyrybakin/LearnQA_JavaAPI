@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -45,6 +47,9 @@ public class UserAuthTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Feature(value = "Positive tests")
+    @Link(name="Positive authorisation test", url="https://software-testing.ru/lms/mod/url/view.php?id=307985")
     @Description("This test successfully authorize user by email and password")
     @DisplayName("Test positive auth user")
     public void testAuthUser() {
@@ -57,7 +62,10 @@ public class UserAuthTest extends BaseTestCase {
         Assertions.assertJsonByName(responseCheckAuth,"user_id",this.userIdOnAuth);
     }
 
+    @Owner(value="Sergey Rybakin")
     @Description("This test checks authorization status w/o sending cookie or token")
+    @Link(name="Negative autorisation tests", url="https://software-testing.ru/lms/mod/url/view.php?id=307986")
+
     @DisplayName("Test negative auth user")
     @ParameterizedTest
     @ValueSource (strings = {"cookie", "headers"})

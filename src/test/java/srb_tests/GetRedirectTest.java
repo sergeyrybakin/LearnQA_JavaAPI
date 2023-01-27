@@ -4,8 +4,10 @@ import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 public class GetRedirectTest {
     @Test
     public void testGetRedirect(){

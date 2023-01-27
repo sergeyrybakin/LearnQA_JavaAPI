@@ -1,16 +1,28 @@
 package srb_tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@Epic("Hometasks")
+@Feature("Ex7: Long redirect")
 public class Ex7GetLongRedirectTest
 {
     @Test
+    @Owner("Sergey Rybakin")
+    @Link(name="Hometask Ex7", url="https://software-testing.ru/lms/mod/assign/view.php?id=307980")
+    @Description("This test has loop for waiting of redirection URL in response.")
+    @DisplayName("Long redirect using URL in response.")
     public void testEx7GetLongRedirect(){
         Map<Integer, String> links = new HashMap<>();
         int i=0;

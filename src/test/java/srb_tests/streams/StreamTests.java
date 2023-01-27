@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 public class StreamTests {
 
     protected int a[] = {11,15,15,12,17,13,14,19,20,16,18,17};

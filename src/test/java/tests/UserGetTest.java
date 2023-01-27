@@ -3,6 +3,8 @@ package tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
 import lib.Assertions;
@@ -21,6 +23,9 @@ public class UserGetTest extends BaseTestCase {
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Feature(value = "Positive tests")
+    @Link(name="Get user's data w/o authorisation", url="https://software-testing.ru/lms/mod/url/view.php?id=307999")
     @Description("This test get user data w/o authorizing")
     @DisplayName("Test positive. This test get user data w/o authorizing")
     public void testGetUserDataNotAuth() {
@@ -35,6 +40,9 @@ public class UserGetTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Feature(value = "Positive tests")
+    @Link(name="Get own user's data", url="https://software-testing.ru/lms/mod/url/view.php?id=307999")
     @Description("This test successfully authorize user and get own user data")
     @DisplayName("Test positive. Getting of own user data")
     public void testGetUserDetailsAuthAsSameUser() {
@@ -60,6 +68,9 @@ public class UserGetTest extends BaseTestCase {
 
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Feature(value = "Positive tests")
+    @Link(name="Get user's data as authorised user", url="https://software-testing.ru/lms/mod/url/view.php?id=307999")
     @Description("This test successfully authorize user and get data of another user")
     @DisplayName("Test positive. Getting of another user data")
     public void testGetUserDetailsAuthAsAnotherUser() {
@@ -78,6 +89,5 @@ public class UserGetTest extends BaseTestCase {
         Assertions.assertJsonHasField(responseUserData,"username");
         String[] unexpectedFields = {"firstName", "lastName", "email"};
         Assertions.assertJsonHasNotFields(responseUserData,unexpectedFields);
-
     }
 }

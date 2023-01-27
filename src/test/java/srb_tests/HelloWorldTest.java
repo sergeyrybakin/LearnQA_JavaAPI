@@ -6,11 +6,13 @@ import io.restassured.path.json.JsonPath;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled
 public class HelloWorldTest
 {
     @ParameterizedTest

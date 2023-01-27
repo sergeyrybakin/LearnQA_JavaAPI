@@ -1,5 +1,11 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import lib.Assertions;
@@ -16,15 +22,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
+@Epic("Hometasks")
+@Feature("Ex13: User agent")
 public class Ex13UserAgentTest extends BaseTestCase {
 
     private ArrayList<String> listOfHeaders = new ArrayList<>();
     private ArrayList<String> listOfExpectations = new ArrayList<>();
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Link(name="Hometask Ex13", url="https://software-testing.ru/lms/mod/assign/view.php?id=307995")
+    @Description("Positive GET test. Backend verification using data from resources/homeworkdata/some.txt file")
+    @DisplayName("Positive GET test. Backend verification")
     public void testUserAgent() throws IOException {
         readUserAgentFromFile("src/test/resources/homeworkdata/some.txt");
 
@@ -40,6 +52,7 @@ public class Ex13UserAgentTest extends BaseTestCase {
         }
     }
 
+    @Step("Verification of parameters in response")
     private void verificationOfParameters(Response response, int i)
     {
         Map<String,String> expectations = getMapOfExpectations(i);
@@ -56,6 +69,7 @@ public class Ex13UserAgentTest extends BaseTestCase {
         }
     }
 
+    @Step("Prepearing data in MAP of verification")
     private Map<String, String> getMapOfExpectations(int i) {
         Map<String,String> expectations = new HashMap<>();
         String str = listOfExpectations.get(i).replaceAll("'","");
@@ -68,6 +82,7 @@ public class Ex13UserAgentTest extends BaseTestCase {
         return expectations;
     }
 
+    @Step("Reading data from resources/homeworkdata/some.txt file")
     private void readUserAgentFromFile(String fullFileName) throws IOException {
         // read file into a stream of lines.
         Path fileName = Paths.get(fullFileName);

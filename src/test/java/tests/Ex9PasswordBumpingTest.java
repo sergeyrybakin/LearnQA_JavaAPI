@@ -1,5 +1,10 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -8,10 +13,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@Epic("Hometasks")
+@Feature("Ex9: Password bumping")
 public class Ex9PasswordBumpingTest {
+
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Link(name="Hometask Ex9", url="https://software-testing.ru/lms/mod/assign/view.php?id=307982")
+    @Description("Positive POST test. Password bumping.")
+    @DisplayName("Positive POST test. Password bumping.")
     public void testEx9PasswordBumping() {
         Map<String, String> data = new HashMap<>();
         data.put("login", "super_admin");

@@ -3,6 +3,8 @@ package tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
@@ -28,6 +30,8 @@ public class UserEditTest extends BaseTestCase {
 
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Link(name="04. Edit of user", url="https://software-testing.ru/lms/mod/url/view.php?id=308000")
     @Description("Positive PUT test. Edit the first name of user.")
     @DisplayName("Positive PUT test. Edit the first name of user.")
     public void editJustCreatedTest() {
@@ -58,6 +62,9 @@ public class UserEditTest extends BaseTestCase {
         Assertions.assertJsonByName(responseUserData,"firstName",newName);
     }
 
+    @Owner(value="Sergey Rybakin")
+    @Link(name="Hometask Ex17", url="https://software-testing.ru/lms/mod/assign/view.php?id=308007")
+
     @Description("Negative PUT test. Non authorized user can't edit user data.")
     @DisplayName("Negative PUT test. Non authorized user can't edit the data of another user.")
     @ParameterizedTest
@@ -86,6 +93,9 @@ public class UserEditTest extends BaseTestCase {
         Assertions.assertJsonByName(responseUserData,"username", "Vitaliy");
         Assertions.assertJsonHasNotFields(responseUserData,unexpectedFields);
     }
+
+    @Owner(value="Sergey Rybakin")
+    @Link(name="Hometask Ex17", url="https://software-testing.ru/lms/mod/assign/view.php?id=308007")
 
     @Description("Negative PUT test. Edit the username of another user.")
     @DisplayName("Negative PUT test. Edit the username of another user as authorized user.")
@@ -141,6 +151,9 @@ public class UserEditTest extends BaseTestCase {
         Assertions.assertJsonHasField(responseForVerification,"username");
         Assertions.assertJsonHasNotFields(responseForVerification,unexpectedFields);
     }
+
+    @Owner(value="Sergey Rybakin")
+    @Link(name="Hometask Ex17", url="https://software-testing.ru/lms/mod/assign/view.php?id=308007")
 
     @Description("Negative PUT test. Can't save illegal parameter.")
     @DisplayName("Negative PUT test. User can't save the illegal format of own parameter.")

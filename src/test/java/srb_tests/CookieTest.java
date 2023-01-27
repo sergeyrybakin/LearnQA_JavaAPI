@@ -1,5 +1,10 @@
 package srb_tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
@@ -7,11 +12,18 @@ import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@Epic("Cookie tests")
+@Feature("Cookie tests")
 public class CookieTest
 {
     @Test
+    @Owner("Sergey Rybakin")
+    @Link(name="Cookie test", url="https://software-testing.ru/lms/mod/url/view.php?id=307975")
+    @Description("Get header and cookie from response after authorisation")
+    @DisplayName("Positive test. Get header and cookie after authorisation")
     public void testGetCookie() {
         Map<String, String> date = new HashMap<>();
         date.put("login", "secret_login");
@@ -41,6 +53,10 @@ public class CookieTest
     }
 
     @Test
+    @Owner("Sergey Rybakin")
+    @Link(name="Cookie test", url="https://software-testing.ru/lms/mod/url/view.php?id=307975")
+    @Description("Verification of secret cookie from response after authorisation")
+    @DisplayName("Positive test. Verification of cookie after authorisation")
     public void testCheckAuthCookie() {
         Map<String, String> data = new HashMap<>();
         data.put("login", "secret_login");

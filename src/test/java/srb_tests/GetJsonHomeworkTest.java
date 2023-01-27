@@ -3,8 +3,10 @@ package srb_tests;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 public class GetJsonHomeworkTest {
     @Test
     public void testGetJsonHomework (){

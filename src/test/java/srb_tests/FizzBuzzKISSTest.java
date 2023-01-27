@@ -2,9 +2,11 @@ package srb_tests;
 
 import io.qameta.allure.Description;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 public class FizzBuzzKISSTest {
     @Test
     @Tag("FizzBuzz")

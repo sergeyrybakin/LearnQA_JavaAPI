@@ -1,18 +1,30 @@
 package srb_tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static java.lang.Thread.sleep;
 
+@Epic("Hometasks")
+@Feature("Ex8: Token test")
 public class Ex8TokensTest{
 
     @Test
+    @Owner("Sergey Rybakin")
+    @Link(name="Ex8: Token test", url="https://software-testing.ru/lms/mod/url/view.php?id=307974")
+    @Description("Get token header and delay from response")
+    @DisplayName("Get token header and delay from response")
     public void testEx8Tokens(){
         Map<Integer,String> statusMessage = new HashMap<>();
         statusMessage.put(1, "Job is NOT ready");

@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import io.restassured.response.Response;
 import lib.Assertions;
 import lib.BaseTestCase;
@@ -24,6 +25,7 @@ public class UserRegisterTest extends BaseTestCase {
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
 
     @Test
+    @Owner(value="Sergey Rybakin")
     @Description("This is negative test creation of user with existed email")
     @DisplayName("Negative POST test. Creation of user with existed email")
     public void testCreateUserWithExistingEmail() {
@@ -42,6 +44,7 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
     @Description("This test successfully creates of a new user with the full set of valid data")
     @DisplayName("Test positive creation of user")
     public void testCreateUserSuccessfully() {
@@ -56,6 +59,7 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
     @Description("This is negative test creation of user with invalid email (without @)")
     @DisplayName("Negative POST test. Creation of user with invalid email")
     public void testCreateUserWithInvalidEmail() {
@@ -73,6 +77,7 @@ public class UserRegisterTest extends BaseTestCase {
         Assertions.assertResponseTextEquals(responseCreateUser,"Invalid email format");
     }
 
+    @Owner(value="Sergey Rybakin")
     @Description("This is negative test creation of user w/o required parameter")
     @DisplayName("Negative POST test. Creation of user w/o one parameter")
     @ParameterizedTest
@@ -92,6 +97,7 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
     @Description("This is negative test creation of user with short username (1 char)")
     @DisplayName("Negative POST test. Creation of user with short username")
     public void testCreateUserWithShortUsername() {
@@ -110,6 +116,7 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
     @Description("This is negative test: creation of user with long username (more then 250 chars)")
     @DisplayName("Negative POST test. Creation of user with 250 chars username")
     public void testCreateUserWithLongUsername() {

@@ -3,6 +3,8 @@ package tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
 import lib.Assertions;
@@ -23,6 +25,8 @@ public class UserDeleteTest extends BaseTestCase {
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
 
     @Test
+    @Owner(value = "Sergey Rybakin")
+    @Link(name="Hometask Ex18", url="https://software-testing.ru/lms/mod/assign/view.php?id=308008")
     @Description("Negative test. DELETE user with id=2.")
     @DisplayName("Negative test. DELETE user with id=2 using its autorisation.")
     public void deleteUserWithId2Test() {
@@ -45,6 +49,8 @@ public class UserDeleteTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Link(name="Hometask Ex18", url="https://software-testing.ru/lms/mod/assign/view.php?id=308008")
     @Description("Positive test. DELETE own user. Create a new user. Login. DELETE itself.")
     @DisplayName("Positive test. DELETE own user.")
     public void deleteOwnUserById() {
@@ -86,6 +92,8 @@ public class UserDeleteTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Sergey Rybakin")
+    @Link(name="Hometask Ex18", url="https://software-testing.ru/lms/mod/assign/view.php?id=308008")
     @Description("Negative DELETE test. Delete another user, just created.")
     @DisplayName("Negative DELETE test. Delete another, just created, user as authorized user.")
     public void deleteAnotherJustCreatedUserTest() {

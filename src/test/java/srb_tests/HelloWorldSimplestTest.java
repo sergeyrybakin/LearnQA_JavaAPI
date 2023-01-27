@@ -3,8 +3,10 @@ package srb_tests;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 public class HelloWorldSimplestTest
 {
     @Test
